@@ -1,4 +1,4 @@
-import { Module } from 'vuex-smart-module';
+import { Module, createStore } from 'vuex-smart-module';
 import { auth } from './auth';
 import { counter } from './counter';
 
@@ -7,7 +7,9 @@ const root = new Module({
         auth,
         counter,
     }
-})
+});
+
+export const store = createStore(root);
 
 export const {
     state,
@@ -16,4 +18,4 @@ export const {
     actions,
     modules,
     plugins
-} = root.getStoreOptions()
+} = root.getStoreOptions();
